@@ -30,6 +30,7 @@ window.WASM_BY_EXAMPLE = {
 
 // Define some constants
 const languageSelectKeys = ["programmingLanguage", "readingLanguage"];
+const path = require("path");
 
 // Define some utility functions
 const createOptionElement = (text, value) => {
@@ -163,7 +164,7 @@ const submitSettingsForm = () => {
   const isOnExamplePage = location.pathname.includes("/examples/");
   if (isOnExamplePage) {
     // Parse out the example name
-    const pathSplit = location.pathname.split("/");
+    const pathSplit = location.pathname.split(path.sep);
     const filename = pathSplit[pathSplit.length - 1];
     const filenameSplit = filename.split(".");
     const exampleName = filenameSplit[0];

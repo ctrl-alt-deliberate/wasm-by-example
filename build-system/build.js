@@ -150,7 +150,7 @@ const buildTask = async () => {
     // Get the parent path for the mustache data
     const parentPathSplit = filePath.split(path.sep);
     parentPathSplit.pop();
-    const parentPath = parentPathSplit.join("/");
+    const parentPath = parentPathSplit.join(path.sep);
 
     // Create a nicely formatted title
     const fileText = fs.readFileSync(filePath, "utf8");

@@ -1,9 +1,10 @@
 const fs = require("fs");
 const mkdirp = require("mkdirp");
+const path = require("path");
 const recursive = require("recursive-readdir");
 const recursiveCopy = require("recursive-copy");
 const highlightJs = require("highlight.js");
-const marked = require("marked");
+const { marked } = require("marked");
 const getTitleMarkdown = require("get-title-markdown");
 const Mustache = require("mustache");
 const CleanCSS = require("clean-css");
@@ -135,7 +136,7 @@ const buildTask = async () => {
     const example = {};
 
     // Split by the path, get the fileName
-    const pathSplit = filePath.split("/");
+    const pathSplit = filePath.split(path.sep);
     const fileName = pathSplit[pathSplit.length - 1];
 
     // Split the filname to get the example
@@ -147,7 +148,7 @@ const buildTask = async () => {
     const readingLanguage = fileSplit[2];
 
     // Get the parent path for the mustache data
-    const parentPathSplit = filePath.split("/");
+    const parentPathSplit = filePath.split(path.sep);
     parentPathSplit.pop();
     const parentPath = parentPathSplit.join("/");
 
